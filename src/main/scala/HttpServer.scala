@@ -14,6 +14,7 @@ class HttpServer(implicit executionContext: ExecutionContext, system: ActorSyste
   val route =
     path("hello") {
       get {
+        SpanInjector.injectSpanToMdc
         logger.info("Hello action")
         complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>Say hello to akka-http</h1>"))
       }
@@ -21,6 +22,7 @@ class HttpServer(implicit executionContext: ExecutionContext, system: ActorSyste
   path("trigger") {
     get {
       onComplete {
+        SpanInjector.injectSpanToMdc
         logger.info("Triggering hello action")
         Http().singleRequest(HttpRequest(uri = "http://localhost:8080/hello")).map { response =>
           response.discardEntityBytes()

@@ -26,6 +26,7 @@ object HelloAkkaScala extends App {
   Source.fromIterator(() => (1 to 5).iterator)
     .throttle(1, 1.second)
     .map { i =>
+      SpanInjector.injectSpanToMdc
       logger.info(s"Element: $i")
       i
     }
