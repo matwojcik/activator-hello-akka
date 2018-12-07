@@ -1,4 +1,4 @@
-addSbtPlugin("com.lightbend.cinnamon" % "sbt-cinnamon" % "2.10.0")
+addSbtPlugin("com.lightbend.cinnamon" % "sbt-cinnamon" % "2.10.10")
 
 credentials += Credentials(Path.userHome / ".lightbend" / "commercial.credentials")
 

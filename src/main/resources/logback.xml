@@ -3,7 +3,7 @@
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%date{YYYY-MM-dd HH:mm:ss.SSS} [%level] [%logger{10}] [%mdc{X-B3-TraceId}] [%mdc{X-B3-SpanId}] %msg%n</pattern>
+            <pattern>%date{YYYY-MM-dd HH:mm:ss.SSS} [%level] [%logger{10}] [%thread] [%mdc{X-B3-TraceId}] [%mdc{X-B3-SpanId}] %msg%n</pattern>
         </encoder>
     </appender>
 
