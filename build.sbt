@@ -40,3 +40,5 @@ libraryDependencies ++= Seq(
 )
 
 testOptions += Tests.Argument(TestFrameworks.JUnit, "-v")
+
+connectInput in run := true

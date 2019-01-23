@@ -1,8 +1,11 @@
+package sample
+
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.HttpRequest
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.{Sink, Source}
+import com.lightbend.cinnamon.opentracing.ActiveSpan
 import org.slf4j.LoggerFactory
 
 import scala.concurrent.{ExecutionContext, Future}
@@ -50,5 +53,5 @@ object HelloAkkaScala extends App {
     .run()
 
   StdIn.readLine() // let it run until user presses return
-
+  system.terminate()
 }
